@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 
-puppeteer.launch({ headless: false }).then(async browser => {
+puppeteer.launch({ headless: true }).then(async browser => {
   var page = await browser.newPage();
   await page.setJavaScriptEnabled(true);
   await page.goto("https://free-ss.site/");
