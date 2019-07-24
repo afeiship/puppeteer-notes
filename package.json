@@ -1,0 +1,18 @@
+{
+  "name": "puppeteer-notes",
+  "version": "1.0.0",
+  "description": "Puppeteer notes.",
+  "homepage": "https://github.com/afeiship/puppeteer-notes",
+  "author": {
+    "name": "afei",
+    "email": "1290657123@qq.com"
+  },
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^1.19.0"
+  }
+}
