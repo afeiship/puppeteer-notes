@@ -18,3 +18,6 @@ puppeteer.launch({ headless: true }).then(async (browser) => {
   });
   await browser.close();
 });
+
+
+// http://localhost:8080/screenshot?url=http://localhost:3000/echart.html&element=#container
