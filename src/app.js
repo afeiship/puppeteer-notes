@@ -1,28 +1,20 @@
-const puppeteer = require("puppeteer");
+const puppeteer = require('puppeteer');
+const options1 = {
+  path: './dist/example.png',
+  type: 'png',
+  omitBackground: false
+};
 
-puppeteer.launch({ headless: true }).then(async browser => {
-  var page = await browser.newPage();
+puppeteer.launch({ headless: true }).then(async (browser) => {
+  const page = await browser.newPage();
+  const url = 'http://localhost:3000/echart.html';
   await page.setJavaScriptEnabled(true);
-  await page.goto("https://free-ss.site/", { waitUntil: "networkidle0" });
-  const node = await page.evaluate(async () => {
-    var els = document.querySelectorAll("#tbss [role='row']");
-    els = [].slice.call(els);
-    var result = [];
-
-    els.forEach(el => {
-      console.log(el.className);
-      if (el.className) {
-        result.push({
-          vtum: el.querySelector("td:nth-child(1)").innerText,
-          address: el.querySelector("td:nth-child(2)").innerText,
-          port: el.querySelector("td:nth-child(3)").innerText,
-          method: el.querySelector("td:nth-child(4)").innerText,
-          password: el.querySelector("td:nth-child(5)").innerText
-        });
-      }
-    });
-
-    return result;
+  await page.goto(url, { waitUntil: 'networkidle2' });
+  const el = await page.$('#container');
+  await el.screenshot({
+    path: './dist/example-100.jpg',
+    type: 'jpeg',
+    quality: 100
   });
-  console.log(node);
+  await browser.close();
 });
